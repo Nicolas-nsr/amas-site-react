@@ -1,0 +1,31 @@
+.btn-solid[disabled],
+.btn-ghost[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.btn-solid span, .btn-ghost span { margin-left: 6px; vertical-align: middle; }
+
+.wa-float-wrap {
+  position: fixed;
+  right: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  z-index: 30;
+}
+.wa-float {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: transform var(--dur-fast);
+}
+.wa-float:hover { transform: scale(1.05); }
+.wa-float:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 3px; }
+.wa-float[disabled] { opacity: 0.45; cursor: not-allowed; }

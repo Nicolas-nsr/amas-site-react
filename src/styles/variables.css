@@ -1,0 +1,32 @@
+/* Identidade visual A.M.A.S. — não alterar sem aprovação */
+:root {
+  --color-cream: #f4efe1;
+  --color-panel: #fffdf7;
+  --color-ink: #1a1714;
+  --color-muted: #6b6256;
+  --color-gold: #9c7b3e;
+  --color-gold-soft: #c7ad79;
+  --color-line: #e1d7be;
+  color-scheme: light;
+
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Jost', sans-serif;
+
+  --space-xs: 8px;
+  --space-sm: 14px;
+  --space-md: 24px;
+  --space-lg: 44px;
+  --space-xl: 72px;
+
+  --radius-sm: 2px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 6px 18px rgba(26, 23, 20, 0.12);
+
+  --bp-tablet: 760px;
+  --bp-desktop: 1040px;
+
+  --dur-fast: 0.15s;
+  --dur-base: 0.3s;
+  --dur-slow: 0.6s;
+  --ease-base: cubic-bezier(0.3, 0.8, 0.4, 1);
+}

@@ -1,0 +1,112 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--color-cream);
+  padding-top: env(safe-area-inset-top, 0px);
+  transition: box-shadow var(--dur-base), background var(--dur-base);
+}
+.site-header.is-scrolled {
+  background: var(--color-panel);
+  box-shadow: 0 1px 0 var(--color-line);
+}
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.brand-id {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-right: auto;
+}
+.brand-id__mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  background: var(--color-ink);
+  color: var(--color-cream);
+  flex: none;
+}
+.brand-id__name {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--color-ink);
+}
+.brand-id__sub { display: block; margin-top: 2px; }
+
+.site-nav {
+  display: none;
+  gap: 22px;
+}
+.site-nav a {
+  color: var(--color-muted);
+  text-decoration: none;
+  font-size: 0.86rem;
+  transition: color var(--dur-fast);
+  padding: 4px 2px;
+}
+.site-nav a:hover,
+.site-nav a.is-active { color: var(--color-gold); }
+.site-nav a:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; }
+
+.site-header__cta { display: none; }
+
+.menu-toggle {
+  background: none;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+.menu-toggle:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 0;
+  overflow: hidden;
+  background: var(--color-panel);
+  border-top: 1px solid transparent;
+  transition: max-height var(--dur-base) var(--ease-base);
+}
+.mobile-menu.is-open {
+  max-height: 320px;
+  border-top-color: var(--color-line);
+}
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--color-ink);
+  padding: 14px 24px;
+  font-size: 0.92rem;
+  border-bottom: 1px solid var(--color-line);
+}
+.mobile-menu .btn {
+  margin: 14px 24px;
+  text-align: center;
+}
+
+@media (min-width: 760px) {
+  .site-nav { display: flex; }
+  .site-header__cta { display: inline-block; }
+  .menu-toggle { display: none; }
+  .mobile-menu { display: none; }
+}
