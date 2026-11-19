@@ -58,8 +58,7 @@ Nenhum dado real do negócio foi inventado nesta versão.
 - Formulário de contato demonstrativo com validação real no cliente,
   mensagens de erro associadas aos campos e estado de envio — deixa claro
   que não há backend nesta versão (nenhum dado é enviado de verdade).
-- Fallback de SPA configurado para Netlify (`public/_redirects`) e
-  Vercel (`vercel.json`).
+- Navegação SPA baseada em hash para compatibilidade com GitHub Pages.
 - Sem preços explícitos e sem carrinho de seleção, por decisão de produto
   já validada no site anterior (orçamento sempre sob avaliação da peça).
 
