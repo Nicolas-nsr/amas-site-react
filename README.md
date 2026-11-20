@@ -17,8 +17,30 @@ Para gerar a versão de produção:
 
 ```bash
 npm run build
-npm run preview
+npm run preview -- --host 127.0.0.1 --port 4173
 ```
+
+## Documentação e testes
+
+O projeto é um site estático e não possui uma API de backend. A especificação
+OpenAPI documenta as páginas públicas do site; ela não representa endpoints
+de dados nem o envio do formulário.
+
+- Swagger UI local: `http://127.0.0.1:4173/api-docs.html`
+- Especificação OpenAPI: `http://127.0.0.1:4173/openapi.yaml`
+- Testes end-to-end: com o preview rodando em outra janela, execute
+  `npx cypress run`.
+
+Os testes verificam a renderização da Home, as quatro páginas internas, o
+acesso direto a uma rota SPA e a disponibilidade da especificação OpenAPI.
+
+## Deploy na Cloudflare
+
+O `wrangler.toml` publica `dist` como assets estáticos e usa
+`not_found_handling = "single-page-application"` para servir o app shell nas
+rotas da SPA. Isso evita depender de uma regra `_redirects` curinga que possa
+entrar em loop no deploy pelo Wrangler. Configure o build como `npm run build`
+e o deploy como `npx wrangler deploy`.
 
 ## Estrutura do projeto
 
@@ -67,9 +89,6 @@ Nenhum dado real do negócio foi inventado nesta versão.
 - Sem backend: o formulário de contato não envia dados de verdade.
 - Imagens são placeholders em CSS (nenhuma foto real do ateliê foi usada,
   pois ainda não foi fornecida).
-- Testes Cypress ainda não implementados — `cypress` já está como
-  devDependency e o script `npm run cypress:open` está pronto para a
-  próxima etapa.
 - Dados de contato (telefone, endereço, e-mail, Instagram) ainda não
   preenchidos — ver seção acima.
 
@@ -78,14 +97,16 @@ Nenhum dado real do negócio foi inventado nesta versão.
 - Conectar o formulário de contato a um serviço real (ex.: e-mail
   transacional ou endpoint próprio).
 - Substituir os placeholders de imagem por fotografias reais do ateliê.
-- Adicionar testes end-to-end com Cypress cobrindo navegação, menu mobile
-  e validação do formulário.
+- Ampliar os testes end-to-end Cypress para menu mobile e validação do
+  formulário.
 - Avaliar depoimentos de clientes, se houver e puderem ser usados.
 
 ## Checklist de validação manual
 
 - [ ] `npm install` conclui sem erros.
 - [ ] `npm run dev` sobe o servidor e a Home carrega.
+- [ ] `npx cypress run` passa em todos os testes.
+- [ ] `/api-docs.html` e `/openapi.yaml` estão disponíveis no build.
 - [ ] Menu mobile abre e fecha corretamente (testar < 760px).
 - [ ] Todos os links do header/footer levam às rotas corretas.
 - [ ] Acesso direto a `/sobre`, `/servicos`, `/contato`, `/privacidade`

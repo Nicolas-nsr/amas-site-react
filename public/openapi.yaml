@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+  title: A.M.A.S. Website Routes
+  description: |
+    Public routes of the A.M.A.S. institutional website.
+    This specification does not describe a backend API because the project
+    currently has no server-side endpoints or contact-form submission service.
+  version: 1.0.0
+servers:
+  - url: /
+paths:
+  /:
+    get:
+      summary: Home page
+      responses:
+        '200':
+          description: Home page HTML
+  /sobre:
+    get:
+      summary: About page
+      responses:
+        '200':
+          description: About page HTML
+  /servicos:
+    get:
+      summary: Services page
+      responses:
+        '200':
+          description: Services page HTML
+  /contato:
+    get:
+      summary: Contact page
+      responses:
+        '200':
+          description: Contact page HTML
+  /privacidade:
+    get:
+      summary: Privacy policy page
+      responses:
+        '200':
+          description: Privacy policy page HTML
