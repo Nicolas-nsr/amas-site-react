@@ -73,11 +73,21 @@ export default function Header() {
         aria-hidden={!menuOpen}
       >
         {NAV_LINKS.map((link) => (
-          <NavLink key={link.to} to={link.to} onClick={() => setMenuOpen(false)}>
+          <NavLink
+            key={link.to}
+            to={link.to}
+            tabIndex={menuOpen ? 0 : -1}
+            onClick={() => setMenuOpen(false)}
+          >
             {link.label}
           </NavLink>
         ))}
-        <NavLink to="/contato" className="btn btn-solid" onClick={() => setMenuOpen(false)}>
+        <NavLink
+          to="/contato"
+          className="btn btn-solid"
+          tabIndex={menuOpen ? 0 : -1}
+          onClick={() => setMenuOpen(false)}
+        >
           Solicitar orçamento
         </NavLink>
       </nav>

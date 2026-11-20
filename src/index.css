@@ -37,7 +37,7 @@ img { max-width: 100%; display: block; }
 .eyebrow {
   font-size: 0.74rem;
   letter-spacing: 0.14em;
-  color: var(--color-gold);
+  color: var(--color-gold-ink);
   text-transform: uppercase;
 }
 

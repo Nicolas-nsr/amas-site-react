@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4>Navegação</h4>
+          <h2>Navegação</h2>
           <ul className="footer-list">
             <li><NavLink to="/">Início</NavLink></li>
             <li><NavLink to="/sobre">Sobre</NavLink></li>
@@ -31,7 +31,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4>Contato</h4>
+          <h2>Contato</h2>
           <ul className="footer-list">
             <li>{siteConfig.city}</li>
             <li className={contact.phone ? undefined : 'pending-text'}>

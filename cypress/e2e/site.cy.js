@@ -24,12 +24,30 @@ describe('A.M.A.S. website', () => {
     cy.contains('Vamos falar sobre sua peça').should('be.visible');
   });
 
+  it('keeps links in the closed mobile menu out of keyboard focus', () => {
+    cy.viewport(375, 812);
+    cy.visit('/#/');
+    cy.get('#mobile-menu a').each(($link) => {
+      cy.wrap($link).should('have.attr', 'tabindex', '-1');
+    });
+
+    cy.get('.menu-toggle').click();
+    cy.get('#mobile-menu a').each(($link) => {
+      cy.wrap($link).should('have.attr', 'tabindex', '0');
+    });
+  });
+
   it('serves Swagger UI and a valid OpenAPI document', () => {
     cy.request('/api-docs.html').its('status').should('eq', 200);
     cy.request('/openapi.yaml').then(({ status, body }) => {
       expect(status).to.eq(200);
       expect(body).to.include('openapi: 3.0.3');
       expect(body).to.include('/servicos:');
+    });
+    cy.request('/robots.txt').then(({ status, body }) => {
+      expect(status).to.eq(200);
+      expect(body).to.include('User-agent: *');
+      expect(body).to.include('Allow: /');
     });
   });
 });
